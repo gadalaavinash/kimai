@@ -1122,11 +1122,15 @@ if ((int)$revisionDB < 1389) {
     exec_query("ALTER TABLE ${p}customers ADD COLUMN `country` varchar(2) NULL DEFAULT NULL AFTER `city`");
 }
 
+if ((int)$revisionDB < 1390) {
+    Kimai_Logger::logfile("-- update to r1390");
+    exec_query("DELETE FROM `${p}configuration` WHERE `option` = 'show_sensible_data'");
+}
+
 // ================================================================================
 // FINALIZATION: update DB version number
 // ================================================================================
-if ((int)$revisionDB < $kga['revision'] && !$errors)
-{
+if ((int)$revisionDB < $kga['revision'] && !$errors) {
     $query = sprintf("UPDATE `${p}configuration` SET value = '%s' WHERE `option` = 'version';", $kga['version']);
     exec_query($query, 0);
 

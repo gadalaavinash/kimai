@@ -17,41 +17,39 @@
  * along with Kimai; If not, see <http://www.gnu.org/licenses/>.
  */
 
-	// Include Basics
-	include('../../includes/basics.php');
-	
+// Include Basics
+include('../../includes/basics.php');
+
 $dir_templates = "templates/";
 $datasrc = "config.ini";
 $settings = parse_ini_file($datasrc);
 $dir_ext = $settings['EXTENSION_DIR'];
 
-	$user = checkUser();
-	// ============================================
-	// = initialize currently displayed timeframe =
-	// ============================================
-	$timeframe = get_timeframe();
-	$in = $timeframe[0];
-	$out = $timeframe[1];
-	
+$user = checkUser();
+// ============================================
+// = initialize currently displayed timeframe =
+// ============================================
+$timeframe = get_timeframe();
+$in = $timeframe[0];
+$out = $timeframe[1];
+
 $view = new Kimai_View();
 $view->addBasePath(__DIR__ . '/templates/');
 
 // read kga --------------------------------------- 
-	$output = $kga;
-    // clean out sone data that is way too private to be shown in the frontend ...
-    
-    if (!$kga['show_sensible_data']) {
-		$output['server_hostname']  = "xxx";
-		$output['server_database']  = "xxx";
-		$output['server_username']  = "xxx";
-		$output['server_password']  = "xxx";
-		$output['password_salt']    = "xxx";
-		$output['user']['secure']   = "xxx";
-		$output['user']['userID']   = "xxx";
-		$output['user']['pw']       = "xxx";
-		$output['user']['password'] = "xxx";
-		$output['user']['apikey']   = "xxx";
-    }
+$output = $kga;
+// clean out some data that is way too private to be shown in the frontend ...
+
+unset($output['server_hostname']);
+unset($output['server_database']);
+unset($output['server_username']);
+unset($output['server_password']);
+unset($output['password_salt']);
+unset($output['user']['secure']);
+unset($output['user']['userID']);
+unset($output['user']['pw']);
+unset($output['user']['password']);
+unset($output['user']['apikey']);
 
 $view->assign('kga', $kga);
 $view->assign('kga_display', print_r($output, true));

@@ -363,7 +363,6 @@ exec_query($query);
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('currency_name','Euro')");
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('currency_sign','€')");
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('currency_first','0')");
-exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('show_sensible_data','0')");
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('show_update_warn','1')");
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('check_at_startup','0')");
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('show_daySeperatorLines','1')");
@@ -374,18 +373,18 @@ exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('date_form
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('date_format_1','%d.%m.')");
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('date_format_2','%d.%m.%Y')");
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('date_format_3','d.m.Y')");
-exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('language','$kga[language]')");
+exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('language','" . $kga["language"] . "')");
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('roundPrecision','0')");
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('decimalSeparator',',')");
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('durationWithSeconds','0')");
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('exactSums','0')");
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('defaultVat','0')");
 exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('editLimit','-')");
-exec_query("INSERT INTO `${p}configuration` (`option` ,`value`) VALUES ('roundTimesheetEntries', '0' );");
-exec_query("INSERT INTO `${p}configuration` (`option` ,`value`) VALUES ('roundMinutes', '0');");
-exec_query("INSERT INTO `${p}configuration` (`option` ,`value`) VALUES ('roundSeconds', '0');");
-exec_query("INSERT INTO `${p}configuration` (`option` ,`value`) VALUES ('allowRoundDown', '0');");
-exec_query("INSERT INTO `${p}configuration` (`option` ,`value`) VALUES ('defaultStatusID', '1');");
+exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('roundTimesheetEntries', '0');");
+exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('roundMinutes', '0');");
+exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('roundSeconds', '0');");
+exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('allowRoundDown', '0');");
+exec_query("INSERT INTO `${p}configuration` (`option`,`value`) VALUES('defaultStatusID', '1');");
 
 if ($errors) {
     $view = new Zend_View();

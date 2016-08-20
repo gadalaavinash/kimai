@@ -25,9 +25,6 @@ $kga = array();
 
 require dirname(__FILE__) . '/version.php';
 
-$kga['show_sensible_data'] = 0;         // set to 1 to display sensible data in the debug/developer extension
-                                        // CAUTION - DON'T FORGET TO TURN IT OFF IN A PRODUCTION ENVIRONMENT!!!
-
 $kga['logfile_lines']      = 100;       // number of lines shown from the logfile in debug extension.
                                         // Set to "@" to display the entire file (might freeze your browser...)
 

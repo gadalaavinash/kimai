@@ -64,7 +64,6 @@ $vars = $database->configuration_get_data();
 if (!empty($vars)) {
     $kga['currency_name'] = $vars['currency_name'];
     $kga['currency_sign'] = $vars['currency_sign'];
-    $kga['show_sensible_data'] = $vars['show_sensible_data'];
     $kga['show_update_warn'] = $vars['show_update_warn'];
     $kga['check_at_startup'] = $vars['check_at_startup'];
     $kga['show_daySeperatorLines'] = $vars['show_daySeperatorLines'];
